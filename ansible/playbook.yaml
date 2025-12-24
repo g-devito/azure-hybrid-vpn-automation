@@ -1,0 +1,9 @@
+- name: hello world
+  hosts: vms
+  tasks:
+    - name: ping vms
+      ansible.builtin.ping:
+
+    - name: print hello world
+      ansible.builtin.debug:
+        msg: Hello World!
