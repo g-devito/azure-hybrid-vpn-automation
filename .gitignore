@@ -1,0 +1,27 @@
+# === Vagrant ===
+.vagrant/
+*.box
+*.log
+
+# === Terraform ===
+# Local state files
+*.tfstate
+*.tfstate.backup
+*.tfstate.lock.info
+.terraform/
+
+# Terraform variables (where you might put secrets)
+*.tfvars
+*.tfvars.json
+
+# === Ansible ===
+*.retry
+# If you use ansible-vault for secrets, keep the password out
+.ansible_vault_pass
+
+# === OS/IDE ===
+.DS_Store
+.idea/
+.vscode/
+*.swp
+node_modules/
