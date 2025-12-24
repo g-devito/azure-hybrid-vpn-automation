@@ -1,0 +1,24 @@
+Vagrant.configure("2") do |config|
+  # defines VM'S OS and hostname
+  config.vm.box = "almalinux/9"
+  config.vm.hostname = "onprem-vpn-gateway"
+  
+  # defines bridge connection to host ethernet NIC
+  config.vm.network "private_network",
+    libvirt__network_name: "default",
+    libvirt__forward_mode: "nat"
+
+  # defines VM's virtual resources
+  config.vm.provider :libvirt do |lv|
+    # defines VM's vRAM and vCUP
+    lv.memory = 1024
+    lv.cpus = 1
+
+    lv.qemu_use_session = false
+    lv.uri = "qemu:///system"
+
+    # defines a headless VM with no GUI support
+    lv.video_type = "none"
+    lv.graphics_type = "none"
+  end
+end
